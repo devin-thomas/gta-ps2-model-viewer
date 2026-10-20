@@ -7,7 +7,7 @@ then look at them in a 120 Hz viewer that is also a scriptable capture rig.
 - The viewer (Electron + three.js) stands every gun on a pedestal in one hall: one lane per game, one column per weapon, so the same gun lines up across games. Guns spin slowly; you can walk around and drag them.
 - Captures are deterministic: a JSON file describes camera moves and captions, and the viewer renders it headlessly to MP4 through ffmpeg.
 
-Clips are in [`site/media`](site/media). The landing page source is in [`site`](site).
+**Landing page with footage: https://gta-ps2-model-viewer.vercel.app** (source in [`site`](site), clips in [`site/media`](site/media)).
 
 ![Hall overview](site/media/ui-hall.jpg)
 
