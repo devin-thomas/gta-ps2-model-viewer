@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>GTA PS2 Gun Viewer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --bg:#07080c; --fg:#e8ecf4; --dim:#8a93a6; --accent:#ffb02e; }
+  html, body { margin:0; height:100%; background:var(--bg); overflow:hidden; font:13px/1.35 "Segoe UI", system-ui, sans-serif; color:var(--fg); }
+  canvas#view { position:fixed; inset:0; width:100%; height:100%; display:block; touch-action:none; cursor:grab; }
+  canvas#view.dragging { cursor:grabbing; }
+  #hud { position:fixed; left:12px; top:10px; padding:8px 10px; background:rgba(7,8,12,.62); border:1px solid rgba(255,255,255,.08); border-radius:6px;
+         font:12px/1.35 Consolas, monospace; pointer-events:none; min-width:210px; }
+  #hud .fps { font-size:20px; font-weight:600; }
+  #hud .ok { color:#6ee7a0; } #hud .warn { color:#ffb02e; } #hud .bad { color:#ff6b6b; }
+  #bar { height:4px; background:rgba(255,255,255,.1); border-radius:2px; margin:4px 0 2px; overflow:hidden; }
+  #bar i { display:block; height:100%; width:0; background:#6ee7a0; }
+  #help { position:fixed; right:12px; bottom:10px; padding:8px 10px; background:rgba(7,8,12,.62); border:1px solid rgba(255,255,255,.08);
+          border-radius:6px; color:var(--dim); pointer-events:none; text-align:right; }
+  #help b { color:var(--fg); font-weight:600; }
+  #loading { position:fixed; inset:0; display:grid; place-items:center; background:var(--bg); color:var(--dim); font-size:15px; transition:opacity .4s; }
+  #loading.done { opacity:0; pointer-events:none; }
+  body.capture #hud, body.capture #help { display:none; }
+</style>
+</head>
+<body>
+<canvas id="view"></canvas>
+<div id="hud"></div>
+<div id="help"><b>WASD</b> move &nbsp; <b>Shift</b> sprint &nbsp; <b>Space/C</b> up/down &nbsp; <b>drag</b> look &nbsp; <b>drag a gun</b> rotate<br>
+  <b>wheel</b> dolly &nbsp; <b>click</b> a gun to focus &nbsp; <b>Tab</b> next gun &nbsp; <b>1/2/3</b> jump to a game &nbsp; <b>R</b> reset<br>
+  <b>P</b> pause spin &nbsp; <b>H</b> hide HUD &nbsp; <b>F2</b> fps target</div>
+<div id="loading">Loading weapon models…</div>
+<script type="importmap">
+{ "imports": { "three": "app://local/node_modules/three/build/three.module.js",
+               "three/addons/": "app://local/node_modules/three/examples/jsm/" } }
+</script>
+<script type="module" src="app://local/renderer/viewer.js"></script>
+</body>
+</html>

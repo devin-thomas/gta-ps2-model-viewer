@@ -1,0 +1,164 @@
+{
+  "name": "gta-ps2-gun-lineups",
+  "width": 1920,
+  "height": 1080,
+  "fps": 120,
+  "crf": 14,
+  "spin": 0.45,
+  "segments": [
+    {
+      "t0": 0,
+      "t1": 6,
+      "type": "move",
+      "ease": "smooth",
+      "from": {
+        "pos": {
+          "at": "col:colt45",
+          "off": [
+            -3.9,
+            0.25,
+            0
+          ]
+        },
+        "look": {
+          "at": "col:colt45",
+          "off": [
+            0,
+            0.14,
+            0
+          ]
+        },
+        "fov": 40
+      },
+      "to": {
+        "pos": {
+          "at": "col:colt45",
+          "off": [
+            -3.2,
+            0.12,
+            0
+          ]
+        },
+        "look": {
+          "at": "col:colt45",
+          "off": [
+            0,
+            0.14,
+            0
+          ]
+        },
+        "fov": 40
+      },
+      "caption": [
+        "Colt 45",
+        "GTA III, Vice City, San Andreas, left to right"
+      ],
+      "only": [
+        "col:colt45"
+      ]
+    },
+    {
+      "t0": 6,
+      "t1": 12,
+      "type": "move",
+      "ease": "smooth",
+      "from": {
+        "pos": {
+          "at": "col:m4",
+          "off": [
+            -3.9,
+            0.25,
+            0
+          ]
+        },
+        "look": {
+          "at": "col:m4",
+          "off": [
+            0,
+            0.14,
+            0
+          ]
+        },
+        "fov": 40
+      },
+      "to": {
+        "pos": {
+          "at": "col:m4",
+          "off": [
+            -3.2,
+            0.12,
+            0
+          ]
+        },
+        "look": {
+          "at": "col:m4",
+          "off": [
+            0,
+            0.14,
+            0
+          ]
+        },
+        "fov": 40
+      },
+      "caption": [
+        "M16 / M4",
+        "The same weapon, remodelled for each game"
+      ],
+      "only": [
+        "col:m4"
+      ]
+    },
+    {
+      "t0": 12,
+      "t1": 18,
+      "type": "move",
+      "ease": "smooth",
+      "from": {
+        "pos": {
+          "at": "col:ak47",
+          "off": [
+            -3.9,
+            0.25,
+            0
+          ]
+        },
+        "look": {
+          "at": "col:ak47",
+          "off": [
+            0,
+            0.14,
+            0
+          ]
+        },
+        "fov": 40
+      },
+      "to": {
+        "pos": {
+          "at": "col:ak47",
+          "off": [
+            -3.2,
+            0.12,
+            0
+          ]
+        },
+        "look": {
+          "at": "col:ak47",
+          "off": [
+            0,
+            0.14,
+            0
+          ]
+        },
+        "fov": 40
+      },
+      "caption": [
+        "AK-47",
+        "PS2 textures, converted straight from the discs"
+      ],
+      "only": [
+        "col:ak47"
+      ]
+    }
+  ],
+  "hideLabels": true
+}

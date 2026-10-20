@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA PS2 Model Viewer</title>
+<meta name="description" content="Extract the weapon models from your own PS2 discs of GTA III, Vice City and San Andreas, and view them in a 120 Hz viewer with scriptable video capture.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="GTA PS2 Model Viewer">
+<meta property="og:description" content="Weapon models from your own PS2 discs, in a 120 Hz viewer with scriptable capture.">
+<meta property="og:image" content="media/tour-poster.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cpath d='M7 20h14l3-5h-8v-3H9l-2 4z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <a class="wordmark" href="./">GTA PS2 Model Viewer</a>
+  <nav aria-label="Primary">
+    <a href="#footage">Footage</a>
+    <a href="#screens">Screenshots</a>
+    <a href="#how">How it works</a>
+    <a href="#setup">Set up</a>
+    <a href="https://github.com/devin-thomas/gta-ps2-model-viewer">GitHub ↗</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="intro">
+    <div>
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Open source · MIT</p>
+      <h1>Weapon models from your own PS2 discs.</h1>
+      <p class="lede">A script that pulls the guns out of GTA III, Vice City and San Andreas disc images, and a 120 Hz viewer that shows them side by side. A JSON file turns the viewer into a camera rig that renders video.</p>
+      <p class="links"><a class="button" href="https://github.com/devin-thomas/gta-ps2-model-viewer">View on GitHub</a> <a class="text-link" href="#setup">Set it up</a></p>
+    </div>
+    <dl class="facts">
+      <div><dt>Weapons</dt><dd>20 models, 3 games</dd></div>
+      <div><dt>Viewer</dt><dd>Electron + three.js, 119.6 fps average at a 120 Hz target</dd></div>
+      <div><dt>Extraction</dt><dd>34 s, no GUI, disc images are read-only</dd></div>
+      <div><dt>Capture</dt><dd>JSON to MP4, deterministic, any fps</dd></div>
+    </dl>
+  </section>
+
+  <section id="footage" class="block">
+    <h2>Footage</h2>
+    <p class="note">Rendered by the viewer itself, 1080p at 60 fps.</p>
+    <figure>
+      <video controls preload="metadata" playsinline width="1920" height="1080" poster="media/tour-poster.jpg">
+        <source src="media/tour.mp4" type="video/mp4">
+        Your browser does not play MP4. <a href="media/tour.mp4">Download the video</a>.
+      </video>
+      <figcaption><strong>Gun hall tour.</strong> A camera path through the hall, with orbits around the San Andreas Colt 45, the GTA III shotgun and the San Andreas AK-47. 25 s, 15 MB.</figcaption>
+    </figure>
+    <figure>
+      <video controls preload="none" playsinline width="1920" height="1080" poster="media/lineup-poster.jpg">
+        <source src="media/lineup.mp4" type="video/mp4">
+        Your browser does not play MP4. <a href="media/lineup.mp4">Download the video</a>.
+      </video>
+      <figcaption><strong>Same weapon, three games.</strong> The Colt 45, M16 / M4 and AK-47 lined up GTA III, Vice City, San Andreas from left to right. 18 s, 4 MB.</figcaption>
+    </figure>
+  </section>
+
+  <section id="screens" class="block">
+    <h2>Screenshots</h2>
+    <p class="note">Captured from the running viewer.</p>
+    <figure>
+      <img src="media/ui-hall.jpg" width="1600" height="901" loading="lazy" decoding="async" alt="The viewer's hall: three pedestals with a Colt 45 each for GTA III, Vice City and San Andreas, with a frame-rate readout in the corner showing 120 fps and a key reference at the bottom right.">
+      <figcaption>The hall. One lane per game, one column per weapon. The readout shows frame rate against the 8.33 ms budget of a 120 Hz display.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <img src="media/ui-ak47.jpg" width="1600" height="901" loading="lazy" decoding="async" alt="Close view of the San Andreas AK-47 with its wooden stock and blocky PS2 texture, labelled AK-47, San Andreas.">
+        <figcaption>Focus view. Click a gun or press Tab and the camera glides to it.</figcaption>
+      </figure>
+      <figure>
+        <img src="media/ui-shotgun.jpg" width="1600" height="901" loading="lazy" decoding="async" alt="The GTA III shotgun on its pedestal seen from the side, with other guns on pedestals behind it, labelled Shotgun, GTA III.">
+        <figcaption>The GTA III shotgun. All of III's weapons come from a single model file.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="how" class="split">
+    <div>
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>How it works</p>
+      <h2>From disc to viewer in five steps</h2>
+    </div>
+    <ol>
+      <li>Read the ISO 9660 disc image directly. Nothing is mounted or modified.</li>
+      <li>Find the weapon files: one multi-part file in GTA III, per-weapon files inside the IMG archive in Vice City and San Andreas.</li>
+      <li>Convert PS2-native geometry to plain RenderWare geometry with aap's open-source <code>convdff</code>.</li>
+      <li>Unswizzle the PS2 textures to PNG, then write OBJ and MTL files.</li>
+      <li>The viewer loads them, stands them upright, scales them to one size and lets you walk around.</li>
+    </ol>
+  </section>
+
+  <section id="setup" class="split">
+    <div>
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Set up</p>
+      <h2>Bring your own discs</h2>
+      <p class="small">No game files, models or textures are in the repository. You need Node.js 22+, Python 3.9+, git and a C++ compiler on PATH.</p>
+    </div>
+    <div>
+<pre><code>git clone https://github.com/devin-thomas/gta-ps2-model-viewer
+cd gta-ps2-model-viewer
+npm install
+python tools/extract.py --gta3 "GTA III.iso" \
+  --vc "Vice City.iso" --sa "San Andreas.iso"
+npm start</code></pre>
+      <p class="small">On Windows, double-click <code>Gun Viewer.cmd</code> after extraction. Any subset of the three games works.</p>
+    </div>
+  </section>
+
+  <section class="split limits">
+    <div>
+      <h2>Limits</h2>
+    </div>
+    <ul>
+      <li>Tested with the USA discs: GTA III, Vice City v1.40, San Andreas v1.03.</li>
+      <li>20 weapons today. Liberty City Stories, Vice City Stories, Xbox and PC versions, vehicles and characters are not done.</li>
+      <li>Models are plain OBJ without vertex colours, so they look flatter than in game.</li>
+      <li>Windows is the tested platform.</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div class="brand">
+    <a class="brand-link" href="https://uppercut-labs.com"><img src="media/uppercut-labs.png" width="48" height="48" alt=""><span>Uppercut Labs</span></a>
+    <p>By Devin Thomas</p>
+  </div>
+  <ul class="social" aria-label="Links">
+    <li><a href="https://x.com/gohan__fgc"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>@gohan__fgc</span></a></li>
+    <li><a href="https://github.com/devin-thomas/gta-ps2-model-viewer"><svg class="icon" viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span></a></li>
+    <li><a href="https://github.com/devin-thomas/gta-ps2-model-viewer/tree/main/docs">Docs</a></li>
+    <li><a href="https://github.com/devin-thomas/gta-ps2-model-viewer/blob/main/LICENSE">MIT license</a></li>
+  </ul>
+  <p class="legal">Unofficial. Not affiliated with Rockstar Games or Take-Two Interactive. Footage shows models extracted from the author's own discs.</p>
+</footer>
+</body>
+</html>

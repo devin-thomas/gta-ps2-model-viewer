@@ -1,0 +1,145 @@
+{
+  "name": "gta-ps2-gun-hall-tour",
+  "width": 1920,
+  "height": 1080,
+  "fps": 120,
+  "crf": 14,
+  "spin": 0.45,
+  "segments": [
+    {
+      "t0": 0,
+      "t1": 5,
+      "type": "move",
+      "ease": "smooth",
+      "from": {
+        "pos": [
+          -6.5,
+          2.1,
+          1.5
+        ],
+        "look": [
+          4,
+          0.9,
+          1.5
+        ],
+        "fov": 58
+      },
+      "to": {
+        "pos": [
+          -3.2,
+          1.6,
+          1.5
+        ],
+        "look": [
+          3,
+          1.1,
+          1.5
+        ],
+        "fov": 52
+      },
+      "caption": [
+        "PS2 GTA weapon models",
+        "Extracted from the disc images: GTA III, Vice City, San Andreas"
+      ]
+    },
+    {
+      "t0": 5,
+      "t1": 9.5,
+      "type": "orbit",
+      "at": "sa/colt45",
+      "radius": [
+        1.7,
+        1.2
+      ],
+      "height": [
+        0.6,
+        0.45
+      ],
+      "a0": 200,
+      "a1": 100,
+      "fov": 44,
+      "caption": [
+        "Colt 45: San Andreas",
+        "RenderWare DFF, PS2-native geometry converted to plain triangles"
+      ]
+    },
+    {
+      "t0": 9.5,
+      "t1": 14,
+      "type": "orbit",
+      "at": "gta3/shotgun",
+      "radius": [
+        1.7,
+        1.25
+      ],
+      "height": [
+        0.5,
+        0.55
+      ],
+      "a0": 215,
+      "a1": 325,
+      "fov": 44,
+      "caption": [
+        "Shotgun: GTA III",
+        "All III weapons live in one file: MODELS/GENERIC/WEAPONS.DFF"
+      ]
+    },
+    {
+      "t0": 14,
+      "t1": 18.5,
+      "type": "orbit",
+      "at": "sa/ak47",
+      "radius": [
+        1.25,
+        1.7
+      ],
+      "height": [
+        0.5,
+        0.6
+      ],
+      "a0": 150,
+      "a1": 40,
+      "fov": 44,
+      "caption": [
+        "AK-47: San Andreas",
+        "Textures unswizzled from PS2 GS format to PNG"
+      ]
+    },
+    {
+      "t0": 18.5,
+      "t1": 25,
+      "type": "move",
+      "ease": "smooth",
+      "from": {
+        "pos": [
+          3,
+          1.7,
+          -2.2
+        ],
+        "look": [
+          4.5,
+          1.1,
+          1.5
+        ],
+        "fov": 55
+      },
+      "to": {
+        "pos": [
+          16,
+          1.7,
+          -2.2
+        ],
+        "look": [
+          14,
+          1.1,
+          1.2
+        ],
+        "fov": 55
+      },
+      "caption": [
+        "20 weapon models, 3 games",
+        "Headless pipeline: ISO to IMG to DFF/TXD to OBJ to this viewer"
+      ]
+    }
+  ]
+}

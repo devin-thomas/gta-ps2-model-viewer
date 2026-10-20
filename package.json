@@ -1,0 +1,20 @@
+{
+  "name": "gta-ps2-gun-viewer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Viewer and capture rig for weapon models extracted from your own PS2 GTA III, Vice City and San Andreas discs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "capture:tour": "electron . --capture shots/tour.json",
+    "capture:lineup": "electron . --capture shots/lineup.json",
+    "bench": "electron . --bench 8",
+    "postinstall": "node node_modules/electron/install.js",
+    "extract": "python tools/extract.py"
+  },
+  "dependencies": {
+    "electron": "44.9.1",
+    "three": "0.186.1"
+  },
+  "license": "MIT"
+}
