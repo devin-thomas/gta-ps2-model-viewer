@@ -15,7 +15,7 @@ then look at them in a 120 Hz viewer that is also a scriptable capture rig.
 
 - A copy of each PS2 game you want, as an ISO. **No game files, models or textures are included in this repository.**
 - Windows 10/11 (written and tested there; the extractor is plain Python and should also run on Linux or macOS with a C++ compiler, which is untested).
-- [Node.js](https://nodejs.org) 22 or newer, [Python](https://python.org) 3.9 or newer, [git](https://git-scm.com), and a C++ compiler on `PATH` (`g++` from [MSYS2](https://www.msys2.org) or MinGW-w64).
+- [Node.js](https://nodejs.org) 22 or newer, [Python](https://python.org) 3.10 or newer (with `pip install -r tools/requirements.txt`), [git](https://git-scm.com), and a C++ compiler on `PATH` (`g++` from [MSYS2](https://www.msys2.org) or MinGW-w64).
 - [ffmpeg](https://ffmpeg.org) on `PATH`, only for video capture.
 
 ## Set up
