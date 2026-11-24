@@ -12,7 +12,7 @@ import argparse, glob, hashlib, json, os, shutil, struct, subprocess, sys, time
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
-from iso9660 import ISO          # noqa: E402
+from uppercut_iso9660 import IsoImage   # noqa: E402  (pip install uppercut-iso9660==0.1.0)
 import dff2obj                    # noqa: E402
 
 LIBRW = ('https://github.com/aap/librw', '18532c2e13efbc1aa43f0b00b4459831f9414de0')
@@ -73,16 +73,15 @@ def build_tools(work, gxx):
 # ---- reading files out of the disc image ----------------------------------------------------------------------
 class Disc:
     def __init__(self, path):
-        self.iso = ISO(path)
+        self.iso = IsoImage(path)
         self.path = path
 
     def entry(self, p):
         return self.iso.find(p)
 
     def read(self, e, off=0, size=None):
-        size = e['size'] - off if size is None else size
-        self.iso.f.seek(e['lba'] * SECTOR + off)
-        return self.iso.f.read(size)
+        size = e.size - off if size is None else size
+        return self.iso.read_at(e.lba, off, size)           # IMG entries are rounded up to whole sectors: may pass the file's end
 
     def file(self, p):
         return self.read(self.entry(p))

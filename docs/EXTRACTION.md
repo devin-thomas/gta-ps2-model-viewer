@@ -6,7 +6,7 @@ The disc images are opened read-only. Nothing is written to them and nothing is 
 
 ## Steps
 
-1. **Read the ISO.** The PS2 discs are plain ISO 9660. `tools/iso9660.py` is a small reader, so no 7-Zip or mounting is needed.
+1. **Read the ISO.** The PS2 discs are plain ISO 9660. `uppercut-iso9660` (`pip install uppercut-iso9660==0.1.0`) reads the image directly, so no 7-Zip or mounting is needed; `uppercut-iso9660 ls <iso>` lists a disc and `uppercut-iso9660 get <iso> <path> <out>` pulls one file.
 2. **Find the weapon files.**
    - GTA III: `MODELS/GENERIC/WEAPONS.DFF` holds every weapon as a frame of one model; the textures are in `MODELS/MISC.TXD`.
    - Vice City: `MODELS/GTA3.IMG` with `MODELS/GTA3.DIR` (IMG version 1). Each weapon is `<name>.dff` and `<name>.txd`.
