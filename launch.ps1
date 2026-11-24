@@ -1,4 +1,4 @@
-# Scripted launch that never takes keyboard focus. Needs tools\noactivate.ps1 (included).
+# Scripted launch that never takes keyboard focus. Needs tools\noactivate.ps1, which imports the NoActivate module (0.1.0, from ps-kit).
 #   .\launch.ps1 --control-port 9120
 #   .\launch.ps1 --capture shots\tour.json --out out\tour.mp4 --fps 60
 param([Parameter(ValueFromRemainingArguments = $true)][string[]]$AppArgs)
