@@ -27,7 +27,7 @@ captures use explicit scene time instead, so they do not depend on frame pacing.
 ## Launching without taking focus
 
 `launch.ps1` starts the app through `tools/noactivate.ps1` and the window opens with `showInactive()`, so a script never
-takes keyboard focus. `Gun Viewer.cmd` passes `--focus` because you started it on purpose.
+takes keyboard focus. `tools/noactivate.ps1` imports the `NoActivate` module from [ps-kit](https://github.com/uppercut-labs/ps-kit/tree/main/packages/no-activate) (version 0.1.0), so install it first: a folder named `NoActivate\0.1.0` that holds the module files, under a folder on `$env:PSModulePath`. `Gun Viewer.cmd` passes `--focus` because you started it on purpose.
 
 ## Troubleshooting
 
